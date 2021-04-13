@@ -1,8 +1,8 @@
 # SurferAPI
 This is a Surfer readme file for our Github repository.The project will focus on learning Spring framework.
 We build an API which will allow users (surfers) to post, read, 
-update and comment/like all info about three known surf beaches,so they can know what 
-conditions are in these beaches such as: wave's hight, water temperature, shark attacks etc.
+update, delete and comment/like all info about three known surf beaches,so they can know what 
+conditions are in these beaches such as: waves height, water temperature, shark attacks etc.
 ## Motivation
 The purpose of this project is to learn spring framework, maven and create API.
 Postman will be used as a test tool. 
