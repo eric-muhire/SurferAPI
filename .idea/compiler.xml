@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="SurferAPI" target="16" />
+      <module name="SurferAPI" target="14" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
