@@ -13,7 +13,7 @@ import java.util.Map;
 @RequestMapping("api/v1/posts")
 public class PostsController {
 
-Map<Integer, Post> posts=new HashMap<Integer,Post>();
+Map<Long, Post> posts=new HashMap<Long,Post>();
         @GetMapping("/")
         public Collection<Post> getAll() {
             return posts.values();
@@ -25,8 +25,17 @@ Map<Integer, Post> posts=new HashMap<Integer,Post>();
     }
     @PostMapping("/")
     public Post addNewPost(@RequestBody Post post){
-            posts.put((int) post.getId(),post);
+            posts.put((long) post.getId(),post);
             return post;
-
     }
+    @PutMapping ("/{id}")
+    public Post updatePost(@PathVariable long id,
+                           @RequestBody Post updatedPost){
+            Post post = posts.get(id);
+            post.setLocation(updatedPost.getLocation());
+            post.setWaves(updatedPost.getWaves());
+            post.setWeather(updatedPost.getWeather());
+            return post;
+    }
+
 }

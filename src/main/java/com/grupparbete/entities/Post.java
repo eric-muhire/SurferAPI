@@ -4,14 +4,14 @@ import java.time.LocalDate;
 
 public class Post {
 
-    private long Id;
+    private long id;
     private String weather;
     private String waves;
     private int location;
    // private LocalDate dateTime;
 
-    public Post (Long Id, String weather, String waves, int location) {
-        this.Id = Id;
+    public Post (Long id, String weather, String waves, int location) {
+        this.id = id;
         this.weather = weather;
         this.waves = waves;
         this.location = location;
@@ -20,11 +20,11 @@ public class Post {
     }
 
     public long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(long id) {
-        Id = id;
+        id = id;
     }
 
     public String getWeather() {
