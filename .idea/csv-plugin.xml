@@ -10,6 +10,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\src\main\java\com\grupparbete\entities\Post.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\main\java\com\grupparbete\school\SurferApplication.java">
           <value>
             <Attribute>
