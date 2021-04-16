@@ -1,4 +1,4 @@
-package com.grupparbete.school;
+package com.grupparbete.entities;
 
 import java.time.LocalDate;
 
@@ -8,14 +8,14 @@ public class Post {
     private String weather;
     private String waves;
     private int location;
-    private LocalDate dateTime;
+   // private LocalDate dateTime;
 
-    public Post (Long Id, String weather, String waves, int location, LocalDate dateTime) {
+    public Post (Long Id, String weather, String waves, int location) {
         this.Id = Id;
         this.weather = weather;
         this.waves = waves;
         this.location = location;
-        this.dateTime = dateTime;
+        //this.dateTime = dateTime;
 
     }
 
@@ -51,11 +51,11 @@ public class Post {
         this.location = location;
     }
 
-    public LocalDate getDateTime() {
+   /* public LocalDate getDateTime() {
         return dateTime;
     }
 
     public void setDateTime(LocalDate dateTime) {
         this.dateTime = dateTime;
-    }
+    } */
 }
