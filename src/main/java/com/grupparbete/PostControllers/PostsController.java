@@ -37,5 +37,9 @@ Map<Long, Post> posts=new HashMap<Long,Post>();
             post.setWeather(updatedPost.getWeather());
             return post;
     }
+    @DeleteMapping ("/{id}")
+    public void deletePost (@PathVariable long id) {
+            posts.remove(id);
+    }
 
 }
