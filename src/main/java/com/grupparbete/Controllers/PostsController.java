@@ -1,4 +1,4 @@
-package com.grupparbete.PostControllers;
+package com.grupparbete.Controllers;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -6,7 +6,6 @@ import com.grupparbete.entities.Post;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @RestController
