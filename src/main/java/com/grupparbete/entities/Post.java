@@ -1,6 +1,6 @@
 package com.grupparbete.entities;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Post {
 
@@ -8,14 +8,17 @@ public class Post {
     private String weather;
     private String waves;
     private int location;
-   // private LocalDate dateTime;
+    private Date createdAt;
+    private Date updatedAt;
 
-    public Post (Long id, String weather, String waves, int location) {
+
+    public Post (Long id, String weather, String waves, int location,Date createdAt,Date updatedAt) {
         this.id = id;
         this.weather = weather;
         this.waves = waves;
         this.location = location;
-        //this.dateTime = dateTime;
+        this.createdAt=createdAt;
+        this.updatedAt=updatedAt;
 
     }
 
@@ -24,7 +27,7 @@ public class Post {
     }
 
     public void setId(long id) {
-        id = id;
+        this.id = id;
     }
 
     public String getWeather() {
@@ -51,11 +54,19 @@ public class Post {
         this.location = location;
     }
 
-   /* public LocalDate getDateTime() {
-        return dateTime;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public void setDateTime(LocalDate dateTime) {
-        this.dateTime = dateTime;
-    } */
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 }

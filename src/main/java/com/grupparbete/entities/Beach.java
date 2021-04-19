@@ -5,7 +5,7 @@ public class Beach {
         private long beachId;
         private String beachName;
 
-        public Beach(long beachId,String BeachName){
+        public Beach(long beachId,String beachName){
             this.beachId=beachId;
             this.beachName=beachName;
 
