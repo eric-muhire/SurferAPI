@@ -1,5 +1,7 @@
 package com.grupparbete.Controllers;
 
+import com.grupparbete.services.PostService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.grupparbete.entities.Post;
@@ -12,33 +14,30 @@ import java.util.Map;
 @RequestMapping("api/v1/posts")
 public class PostsController {
 
-Map<Long, Post> posts=new HashMap<Long,Post>();
+    @Autowired
+            private PostService postService;
+
         @GetMapping("/")
         public Collection<Post> getAll() {
-            return posts.values();
+            return postService.getAll();
             
     }
     @GetMapping ("/{id}")
     public Post getById (@PathVariable long id) {
-            return posts.get(id);
+            return postService.getById(id);
     }
     @PostMapping("/")
     public Post addNewPost(@RequestBody Post post){
-            posts.put((long) post.getId(),post);
-            return post;
+            return postService.addPost(post);
     }
     @PutMapping ("/{id}")
-    public Post updatePost(@PathVariable long id,
-                           @RequestBody Post updatedPost){
-            Post post = posts.get(id);
-            post.setLocation(updatedPost.getLocation());
-            post.setWaves(updatedPost.getWaves());
-            post.setWeather(updatedPost.getWeather());
-            return post;
+    public Post updatePost(@PathVariable long id, @RequestBody Post updatedPost){
+
+            return postService.updatePost(id, updatedPost);
     }
     @DeleteMapping ("/{id}")
-    public void deletePost (@PathVariable long id) {
-            posts.remove(id);
+    public void deletePost (@PathVariable Long id) {
+            postService.deletePost(id);
     }
 
 }
