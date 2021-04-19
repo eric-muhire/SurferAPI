@@ -1,22 +1,22 @@
 package com.grupparbete.entities;
-import java.util.ArrayList;
+
 public class Beach {
 
-        private long beachID;
+        private long beachId;
         private String beachName;
 
-        public Beach(long beachID,String BeachName){
-            this.beachID=beachID;
+        public Beach(long beachId,String BeachName){
+            this.beachId=beachId;
             this.beachName=beachName;
 
         }
 
-    public long getBeachID() {
-        return beachID;
+    public long getBeachId() {
+        return beachId;
     }
 
-    public void setBeachID(long beachID) {
-        this.beachID = beachID;
+    public void setBeachId(long beachId) {
+        this.beachId = beachId;
     }
 
     public String getBeachName() {
