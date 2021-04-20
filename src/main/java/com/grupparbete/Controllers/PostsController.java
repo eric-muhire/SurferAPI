@@ -1,15 +1,14 @@
 package com.grupparbete.Controllers;
 
 
+import com.grupparbete.entities.Post;
+import com.grupparbete.requests.AddPostRequest;
+import com.grupparbete.requests.UpdatePostRequest;
 import com.grupparbete.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.grupparbete.requests.*;
-import com.grupparbete.entities.Post;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 
 @RestController
@@ -33,9 +32,9 @@ public class PostsController {
             return postService.addPost(request);
     }
     @PutMapping ("/{id}")
-    public Post updatePost(@PathVariable UUID id, @RequestBody Post updatedPost){
+    public Post updatePost(@PathVariable UUID id, @RequestBody UpdatePostRequest request){
 
-            return postService.updatePost(id, updatedPost);
+            return postService.updatePost(id, request);
     }
     @DeleteMapping ("/{id}")
     public void deletePost (@PathVariable UUID id) {
