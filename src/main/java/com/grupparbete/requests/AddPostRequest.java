@@ -6,7 +6,9 @@ public class AddPostRequest {
 
     private String weather;
     private String waves;
+    private int location;
     private Date createdAt;
+
 
     public String getWeather() {
         return weather;
@@ -31,5 +33,15 @@ public class AddPostRequest {
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
+
+    public int getLocation() {
+        return location;
+    }
+
+    public void setLocation(int location) {
+        this.location = location;
+    }
+
+
 
 }

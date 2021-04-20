@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.UUID;
 
 @Service
@@ -27,6 +28,9 @@ public class PostService {
         post.setId(UUID.randomUUID());
         post.setWeather(request.getWeather());
         post.setWaves(request.getWaves());
+        post.setLocation(request.getLocation());
+        post.setCreatedAt(new Date());
+        post.setUpdatedAt(request.getCreatedAt());
 
 
         return postRepository.addPost(post);
