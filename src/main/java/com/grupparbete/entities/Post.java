@@ -1,10 +1,11 @@
 package com.grupparbete.entities;
 
 import java.util.Date;
+import java.util.UUID;
 
 public class Post {
 
-    private long id;
+    private UUID id;
     private String weather;
     private String waves;
     private int location;
@@ -12,21 +13,16 @@ public class Post {
     private Date updatedAt;
 
 
-    public Post (Long id, String weather, String waves, int location,Date createdAt,Date updatedAt) {
-        this.id = id;
-        this.weather = weather;
-        this.waves = waves;
-        this.location = location;
-        this.createdAt=createdAt;
-        this.updatedAt=updatedAt;
+
+    public Post() {
 
     }
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
