@@ -33,17 +33,22 @@ public class SurferApplication {
 		.select()
 		.paths(PathSelectors.regex("/api.*"))
 		.apis(RequestHandlerSelectors.basePackage("com.grupparbete"))
-		.build();
+		.build()
+					.apiInfo(apiDetails());
 		}
 		private ApiInfo apiDetails(){
 			return new ApiInfo(
 					"Surfer API",
-					"Api for finding out information before going to the beach for surfing",
-					"1.0",
-					"Free to use",
-					new springfox.documentation.service.Contact("Eric Muhire,Mousaab Yedjour,John Moberg", "N/A" , "N/A"),
-					"Free of charge",
-					"N/A",
+					"This is a school project.The project will focus on learning Spring framework and other tools for systematic software development." +
+							"The API will allow users (surfers) to post, read, update, delete and comment.",
+
+
+					"1.0.0",
+					"http://example.com/terms/",
+					new springfox.documentation.service.Contact("Developer of Surfer API", "https://www.jensenyh.se/vara-utbildningar/cloud-amazon-webbservice" , "developer"),
+
+					"Apache 2.0",
+					"http://www.apache.org/licenses/LICENSE-2.0.html",
 					Collections.emptyList());
 
 		}
