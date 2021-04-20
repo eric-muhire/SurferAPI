@@ -4,6 +4,7 @@ package com.grupparbete.services;
 import com.grupparbete.entities.Post;
 import com.grupparbete.repositories.PostInMemoryRepository;
 import com.grupparbete.requests.AddPostRequest;
+import com.grupparbete.requests.UpdatePostRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +36,12 @@ public class PostService {
 
         return postRepository.addPost(post);
     }
-    public Post updatePost(UUID id, Post post){
+    public Post updatePost(UUID id, UpdatePostRequest request){
+        var post = postRepository.getById(id);
+        post.setWeather(request.getWeather());
+        post.setUpdatedAt(new Date());
+        post.setWaves(request.getWaves());
+        post.setUpdatedAt(new Date());
         return postRepository.updatePost(id, post);
 
     }
