@@ -1,0 +1,37 @@
+package com.grupparbete.repositories;
+
+import com.grupparbete.entities.User;
+import org.springframework.stereotype.Service;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
+
+@Service
+public class UserInMemoryRepository {
+    Map<Integer, User> users = new HashMap<Integer, User>();
+
+    public Collection<User> getAll() {
+        return users.values();
+    }
+
+    public User getById(int id) {
+        return users.get(id);
+        }
+        public User addUser (User user){
+            users.put(user.getId(), user);
+            return users.get(user.getId());
+
+        }
+        public User updateUser ( int id, User user){
+            users.put(id, user);
+            return users.get(id);
+
+        }
+        public void deleteUser (int id){
+            users.remove(id);
+        }
+    }
+
+
