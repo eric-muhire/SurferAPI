@@ -1,42 +1,45 @@
 package com.grupparbete.Controllers;
 
+
 import com.grupparbete.entities.Beach;
+import com.grupparbete.requests.AddBeachRequest;
+import com.grupparbete.requests.UpdateBeachRequest;
+import com.grupparbete.services.BeachService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
-@RequestMapping("api/v1/beaches")
+@RequestMapping("api/v1/beach")
 public class BeachController {
-
-Map<Long, Beach> beaches =new HashMap<Long, Beach>();
-        @GetMapping("/")
-        public Collection<Beach> getAll() {
-            return beaches.values();
+@Autowired
+private BeachService beachService;
+    @GetMapping("/")
+    public Collection<Beach> getAll() {
+        return beachService.getAll();
             
     }
-    @GetMapping ("/{beachId}")
-    public Beach getByBeachId (@PathVariable long beachId) {
-            return beaches.get(beachId);
+    @GetMapping ("/{id}")
+    public Beach getById (@PathVariable int id) {
+
+        return beachService.getById(id);
     }
     @PostMapping("/")
-    public Beach addNewBeach(@RequestBody Beach beach){
-            beaches.put((long) beach.getBeachId(),beach);
-            return beach;
+    public Beach addNewBeach(@RequestBody AddBeachRequest request){
+
+            return beachService.addBeach(request);
     }
-    @PutMapping ("/{beachId}")
-    public Beach updateBeach(@PathVariable long beachId,
-                           @RequestBody Beach updatedBeach){
-            Beach beach = beaches.get(beachId);
-           beach.setBeachId(updatedBeach.getBeachId());
-         beach.setBeachName(updatedBeach.getBeachName());
-            return beach;
+    @PutMapping ("/{id}")
+    public Beach updateBeach(@PathVariable int id,
+                           @RequestBody UpdateBeachRequest request){
+
+            return beachService.updateBeach(id,request);
     }
-    @DeleteMapping ("/{beachId}")
-    public void deleteBeach (@PathVariable long beachId) {
-            beaches.remove(beachId);
+    @DeleteMapping ("/{id}")
+    public void deleteBeach (@PathVariable int id) {
+
+    beachService.deleteBeach(id);
     }
 
 }
