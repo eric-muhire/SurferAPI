@@ -16,18 +16,20 @@ public class PostInMemoryRepository {
 
     }
     public Post getById(UUID id){
+
         return posts.get(id);
     }
-public Post addPost(Post post){
+    public Post addPost(Post post){
         posts.put(post.getId(),post);
         return posts.get(post.getId());
-}
-public Post updatePost(UUID id, Post post){
+    }
+    public Post updatePost(UUID id, Post post){
         posts.put(id, post);
         return posts.get(id);
-}
-public void deletePost(UUID id){
-        posts.remove( id);
+    }
+    public void deletePost(UUID id){
+
+        posts.remove(id);
 }
 
 }

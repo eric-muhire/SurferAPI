@@ -1,13 +1,8 @@
-package com.grupparbete.entities;
+package com.grupparbete.requests;
 
-public class Beach {
-
-        private int id;
-        private String beachName;
-
-    public Beach() {
-
-    }
+public class AddBeachRequest {
+    private int id;
+    private String beachName;
 
     public int getId() {
         return id;
@@ -25,5 +20,3 @@ public class Beach {
         this.beachName = beachName;
     }
 }
-
-

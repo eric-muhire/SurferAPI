@@ -18,9 +18,11 @@ public class PostService {
     private PostInMemoryRepository postRepository;
 
     public Collection<Post>getAll(){
+
         return postRepository.getAll();
     }
     public Post getById(UUID id) {
+
         return postRepository.getById(id);
     }
     public Post addPost(AddPostRequest request) {
@@ -32,7 +34,6 @@ public class PostService {
         post.setLocation(request.getLocation());
         post.setCreatedAt(new Date());
         post.setUpdatedAt(request.getCreatedAt());
-
 
         return postRepository.addPost(post);
     }

@@ -29,6 +29,7 @@ public class PostsController {
     }
     @PostMapping("/")
     public Post addNewPost(@RequestBody AddPostRequest request){
+
             return postService.addPost(request);
     }
     @PutMapping ("/{id}")
