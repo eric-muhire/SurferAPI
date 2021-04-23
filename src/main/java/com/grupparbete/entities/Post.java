@@ -1,10 +1,15 @@
 package com.grupparbete.entities;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.Date;
 import java.util.UUID;
 
+@ApiModel(description = "This is the post model",
+        value = "Post Model")
 public class Post {
-
+    @ApiModelProperty(notes = "Unique identifier for post")
     private UUID id;
     private String weather;
     private String waves;
