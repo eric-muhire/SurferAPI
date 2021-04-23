@@ -1,12 +1,19 @@
 package com.grupparbete.requests;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.Date;
 
+@ApiModel(description = "Add a new post Request")
 public class AddPostRequest {
-
+    @ApiModelProperty(notes = "The weather description")
     private String weather;
+    @ApiModelProperty(notes = "The waves description")
     private String waves;
+    @ApiModelProperty(notes = "The location specification")
     private int location;
+    @ApiModelProperty(notes = "The time/date of created post")
     private Date createdAt;
 
 

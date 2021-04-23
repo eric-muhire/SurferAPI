@@ -1,11 +1,17 @@
 package com.grupparbete.requests;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.Date;
 
+@ApiModel(description = "Update post Request")
 public class UpdatePostRequest {
-
+    @ApiModelProperty(notes = "Update weather")
     private String weather;
+    @ApiModelProperty(notes = "Update waves")
     private String waves;
+    @ApiModelProperty(notes = "Date/time of the Update")
     private Date updatedAt;
 
     public String getWeather() {
