@@ -1,16 +1,19 @@
 package com.grupparbete.entities;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(description = "This is the User Model",value ="User model")
+
 public class User {
+    @ApiModelProperty(notes = "Unique identifier for User")
     private int id;
     private String userName;
     private String userEmail;
 
-
     public User() {
 
     }
-
-
     public int getId() {
         return id;
     }
