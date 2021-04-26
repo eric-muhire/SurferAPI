@@ -6,16 +6,17 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 @Service
 public class BeachRepository {
 
-    Map<Integer, Beach> beaches=new HashMap<Integer, Beach>();
+    Map<UUID, Beach> beaches=new HashMap<>();
     public Collection<Beach> getAll(){
 
         return beaches.values();
     }
-    public Beach getById (int id){
+    public Beach getById (UUID id){
 
         return beaches.get(id);
     }
@@ -23,7 +24,7 @@ public class BeachRepository {
         beaches.put(beach.getId(),beach);
         return beaches.get(beach.getId());
     }
-    public Beach updateBeach(int id,Beach beach){
+    public Beach updateBeach(UUID id, Beach beach){
         beaches.put(id, beach);
         return beaches.get(id);
     }

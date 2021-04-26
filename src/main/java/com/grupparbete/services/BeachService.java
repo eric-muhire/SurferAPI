@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.UUID;
 
 @Service
 public class BeachService {
@@ -19,7 +20,7 @@ public class BeachService {
         return beachRepository.getAll();
     }
 
-    public Beach getById(int id) {
+    public Beach getById(UUID id) {
 
         return beachRepository.getById(id);
 
@@ -27,12 +28,12 @@ public class BeachService {
 
     public Beach addBeach (AddBeachRequest request){
         var beach = new Beach();
-        beach.setId(request.getId());
+        beach.setId(UUID.randomUUID());
         beach.setBeachName(request.getBeachName());
 
         return beachRepository.addBeach(beach);
     }
-    public Beach updateBeach (int id, UpdateBeachRequest request){
+    public Beach updateBeach (UUID id, UpdateBeachRequest request){
         var beach = beachRepository.getById(id);
         beach.setBeachName(request.getBeachName());
 

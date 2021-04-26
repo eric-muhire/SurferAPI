@@ -2,7 +2,6 @@ package com.grupparbete.Controllers;
 
 
 import com.grupparbete.entities.Beach;
-import com.grupparbete.entities.Post;
 import com.grupparbete.requests.AddBeachRequest;
 import com.grupparbete.requests.UpdateBeachRequest;
 import com.grupparbete.services.BeachService;
@@ -12,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("api/v1/beach")
@@ -32,7 +32,7 @@ private BeachService beachService;
             notes = "Get beach with a specific Id",
             response = Beach.class)
     public Beach getById (@ApiParam(value = "Id of the beach",
-            required = true) @PathVariable int id) {
+            required = true) @PathVariable UUID id) {
 
         return beachService.getById(id);
     }
@@ -47,8 +47,8 @@ private BeachService beachService;
     @PutMapping ("/{id}")
     @ApiOperation(value = "Update beach by Id",
             notes = "Id required to update beach",
-            response = Post.class)
-    public Beach updateBeach(@PathVariable int id,
+            response = Beach.class)
+    public Beach updateBeach(@PathVariable UUID id,
                            @RequestBody UpdateBeachRequest request){
 
             return beachService.updateBeach(id,request);

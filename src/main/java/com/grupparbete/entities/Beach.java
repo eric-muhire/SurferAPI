@@ -3,23 +3,25 @@ package com.grupparbete.entities;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import java.util.UUID;
+
 @ApiModel(description = "This is the beach model",
         value = "Beach Model")
 public class Beach {
     @ApiModelProperty(notes = "Unique Id and name of the beach")
 
-        private int id;
+        private UUID id;
         private String beachName;
 
     public Beach() {
 
     }
 
-    public int getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
