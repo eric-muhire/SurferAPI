@@ -19,7 +19,7 @@ public class BeachController {
 @Autowired
 private BeachService beachService;
     @GetMapping("/")
-    @ApiOperation(value = "Get all posts",
+    @ApiOperation(value = "Get all Beach-info",
             notes = "Fetches all beaches from the API",
             response = Beach.class,
             responseContainer = "List")
@@ -28,7 +28,7 @@ private BeachService beachService;
             
     }
     @GetMapping ("/{id}")
-    @ApiOperation(value = "Get post by Id",
+    @ApiOperation(value = "Get a specific beach by Id",
             notes = "Get beach with a specific Id",
             response = Beach.class)
     public Beach getById (@ApiParam(value = "Id of the beach",
