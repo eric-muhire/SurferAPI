@@ -12,7 +12,7 @@ public class AddPostRequest {
     @ApiModelProperty(notes = "The waves description")
     private String waves;
     @ApiModelProperty(notes = "The location specification")
-    private int location;
+    private int beachId;
     @ApiModelProperty(notes = "The time/date of created post")
     private Date createdAt;
 
@@ -44,12 +44,12 @@ public class AddPostRequest {
         this.createdAt = createdAt;
     }
 
-    public int getLocation() {
-        return location;
+    public int getBeachId() {
+        return beachId;
     }
 
-    public void setLocation(int location) {
-        this.location = location;
+    public void setBeachId(int beachId) {
+        this.beachId = beachId;
     }
 
 
