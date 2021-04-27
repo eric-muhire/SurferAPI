@@ -31,14 +31,14 @@ public class UserController {
 
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{userId}")
     @ApiOperation(
-            value = "Get Surfer by Id",
-            notes = "Get Surfer with a specific Id",
+            value = "Get Surfer by userId",
+            notes = "Get Surfer with a specific userId",
             response=User.class)
-    public User getById(@ApiParam(value ="Id of the surfer",required = true )
-                        @PathVariable int id) {
-        return userService.getById(id);
+    public User getById(@ApiParam(value ="userId of the surfer",required = true )
+                        @PathVariable int userId) {
+        return userService.getById(userId);
     }
 
     @PostMapping("/")
@@ -50,25 +50,25 @@ public class UserController {
         return userService.addUser(request);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{userId}")
     @ApiOperation(
-            value = "Update user by Id",
+            value = "Update user by userId",
             notes = "Only user name will be updated",
             response=User.class)
-    public User updateUser(@ApiParam(value ="Id of the surfer",required = true )
-                           @PathVariable int id,
+    public User updateUser(@ApiParam(value ="userId of the surfer",required = true )
+                           @PathVariable int userId,
                            @RequestBody UpdateUserRequest request) {
 
-        return userService.updateUser(id, request);
+        return userService.updateUser(userId, request);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{userId}")
     @ApiOperation(
-            value = "Delete user by Id",
-            notes = "Delete User with a specific id ",
+            value = "Delete user by userId",
+            notes = "Delete User with a specific userId ",
             response=User.class)
-    public void deleteUser(@ApiParam(value ="Id of the surfer",required = true )
-                           @PathVariable int id) {
-        userService.deleteUser(id);
+    public void deleteUser(@ApiParam(value ="userId of the surfer",required = true )
+                           @PathVariable int userId) {
+        userService.deleteUser(userId);
     }
 }

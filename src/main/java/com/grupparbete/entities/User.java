@@ -7,18 +7,18 @@ import io.swagger.annotations.ApiModelProperty;
 
 public class User {
     @ApiModelProperty(notes = "Unique identifier for User")
-    private int id;
+    private int userId;
     private String userName;
     private String userEmail;
 
     public User() {
 
     }
-    public int getId() {
-        return id;
+    public int getUserId() {
+        return userId;
     }
-    public void setId(int id) {
-        this.id = id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
     public String getUserName() {
         return userName;

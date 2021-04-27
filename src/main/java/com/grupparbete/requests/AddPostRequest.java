@@ -15,6 +15,8 @@ public class AddPostRequest {
     private int beachId;
     @ApiModelProperty(notes = "The time/date of created post")
     private Date createdAt;
+    @ApiModelProperty(notes = "The user's ID specification")
+    private int userId;
 
 
     public String getWeather() {
@@ -30,6 +32,14 @@ public class AddPostRequest {
     public String getWaves() {
 
         return waves;
+    }
+
+    public int getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public void setWaves(String waves) {

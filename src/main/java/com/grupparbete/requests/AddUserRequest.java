@@ -8,7 +8,7 @@ import io.swagger.annotations.ApiModelProperty;
 public class AddUserRequest {
 
     @ApiModelProperty(notes = "The id of the user")
-    private int id;
+    private int userId;
 
     @ApiModelProperty(notes = "The name of the user")
     private String userName;
@@ -16,12 +16,12 @@ public class AddUserRequest {
     @ApiModelProperty(notes = "The user´s  e-mail")
     private String userEmail;
 
-    public int getId() {
-        return id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getUserName() {
