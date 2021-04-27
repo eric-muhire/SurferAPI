@@ -13,6 +13,8 @@ public class UpdatePostRequest {
     private String waves;
     @ApiModelProperty(notes = "Date/time of the Update")
     private Date updatedAt;
+    @ApiModelProperty(notes = "The user's ID specification")
+    private int userId;
 
     public String getWeather() {
         return weather;
@@ -36,6 +38,14 @@ public class UpdatePostRequest {
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public int getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
 

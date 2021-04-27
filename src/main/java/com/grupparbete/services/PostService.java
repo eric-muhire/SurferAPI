@@ -34,6 +34,7 @@ public class PostService {
         post.setBeachId(request.getBeachId());
         post.setCreatedAt(new Date());
         post.setUpdatedAt(request.getCreatedAt());
+        post.setUserId(request.getUserId());
 
         return postRepository.addPost(post);
     }

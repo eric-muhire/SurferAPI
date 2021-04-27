@@ -16,25 +16,25 @@ public class UserService {
     public Collection<User>getAll(){
         return userRepository.getAll();
     }
-    public User getById(int id){
-        return userRepository.getById(id);
+    public User getById(int userId){
+        return userRepository.getById(userId);
     }
     public User addUser(AddUserRequest request){
         var user=new User();
-        user.setId(request.getId());
+        user.setUserId(request.getUserId());
         user.setUserName(request.getUserName());
         user.setUserEmail(request.getUserEmail());
 
         return userRepository.addUser(user);
 
     }
-    public User updateUser(int id, UpdateUserRequest request) {
-        var user = userRepository.getById(id);
+    public User updateUser(int userId, UpdateUserRequest request) {
+        var user = userRepository.getById(userId);
         user.setUserName(request.getUserName());
         user.setUserEmail(request.getUserEmail());
-        return userRepository.updateUser(id, user);
+        return userRepository.updateUser(userId, user);
     }
-    public void deleteUser(int id){
-        userRepository.deleteUser(id);
+    public void deleteUser(int userId){
+        userRepository.deleteUser(userId);
     }
 }

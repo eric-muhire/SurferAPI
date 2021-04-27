@@ -16,6 +16,16 @@ public class Post {
     private int beachId;
     private Date createdAt;
     private Date updatedAt;
+    private int userId;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
 
     public Post() {
 
