@@ -31,7 +31,7 @@ public class PostService {
         post.setId(UUID.randomUUID());
         post.setWeather(request.getWeather());
         post.setWaves(request.getWaves());
-        post.setLocation(request.getLocation());
+        post.setBeachId(request.getBeachId());
         post.setCreatedAt(new Date());
         post.setUpdatedAt(request.getCreatedAt());
 

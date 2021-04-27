@@ -13,7 +13,7 @@ public class Post {
     private UUID id;
     private String weather;
     private String waves;
-    private int location;
+    private int beachId;
     private Date createdAt;
     private Date updatedAt;
 
@@ -45,12 +45,12 @@ public class Post {
         this.waves = waves;
     }
 
-    public int getLocation() {
-        return location;
+    public int getBeachId() {
+        return beachId;
     }
 
-    public void setLocation(int location) {
-        this.location = location;
+    public void setBeachId(int beachId) {
+        this.beachId = beachId;
     }
 
     public Date getCreatedAt() {
