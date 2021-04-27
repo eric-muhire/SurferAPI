@@ -39,7 +39,7 @@ public class BeachService {
 
         return beachRepository.updateBeach(id, beach);
     }
-    public void deleteBeach (int id){
+    public void deleteBeach (UUID id){
         beachRepository.deleteBeach(id);
     }
 
