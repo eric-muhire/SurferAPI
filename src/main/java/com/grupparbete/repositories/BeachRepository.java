@@ -28,7 +28,7 @@ public class BeachRepository {
         beaches.put(id, beach);
         return beaches.get(id);
     }
-    public void deleteBeach (int id) {
+    public void deleteBeach (UUID id) {
         beaches.remove(id);
 
     }

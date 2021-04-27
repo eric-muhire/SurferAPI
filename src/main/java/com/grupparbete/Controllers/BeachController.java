@@ -57,7 +57,7 @@ private BeachService beachService;
     @ApiOperation(value = "Delete beach by Id",
             notes = "Id required to delete beach",
             response = Beach.class)
-    public void deleteBeach (@ApiParam(value = "Id of the beach", required = true) @PathVariable int id) {
+    public void deleteBeach (@ApiParam(value = "Id of the beach", required = true) @PathVariable UUID id) {
 
     beachService.deleteBeach(id);
     }
