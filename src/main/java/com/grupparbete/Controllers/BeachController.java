@@ -28,8 +28,8 @@ private BeachService beachService;
             
     }
     @GetMapping ("/{id}")
-    @ApiOperation(value = "Get a specific beach by beachId",
-            notes = "Get beach with a specific beachId",
+    @ApiOperation(value = "Get a specific beach by Id",
+            notes = "Get beach with a specific Id",
             response = Beach.class)
     public Beach getById (@ApiParam(value = "Id of the beach",
             required = true) @PathVariable UUID id) {
@@ -45,8 +45,8 @@ private BeachService beachService;
             return beachService.addBeach(request);
     }
     @PutMapping ("/{id}")
-    @ApiOperation(value = "Update beach by beachId",
-            notes = "beachId required to update beach",
+    @ApiOperation(value = "Update beach by Id",
+            notes = "Id required to update beach",
             response = Beach.class)
     public Beach updateBeach(@PathVariable UUID id,
                            @RequestBody UpdateBeachRequest request){
@@ -54,10 +54,10 @@ private BeachService beachService;
             return beachService.updateBeach(id,request);
     }
     @DeleteMapping ("/{id}")
-    @ApiOperation(value = "Delete beach by beachId",
-            notes = "beachId required to delete beach",
+    @ApiOperation(value = "Delete beach by Id",
+            notes = "Id required to delete beach",
             response = Beach.class)
-    public void deleteBeach (@ApiParam(value = "beachId of the beach", required = true) @PathVariable UUID id) {
+    public void deleteBeach (@ApiParam(value = "Id of the beach", required = true) @PathVariable UUID id) {
 
     beachService.deleteBeach(id);
     }
