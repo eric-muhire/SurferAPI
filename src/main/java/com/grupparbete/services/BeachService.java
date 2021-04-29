@@ -4,6 +4,7 @@ import com.grupparbete.entities.Beach;
 import com.grupparbete.repositories.BeachRepository;
 import com.grupparbete.requests.AddBeachRequest;
 import com.grupparbete.requests.UpdateBeachRequest;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
