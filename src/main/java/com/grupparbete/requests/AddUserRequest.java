@@ -2,9 +2,13 @@ package com.grupparbete.requests;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @ApiModel(description = "Add new User Request")
 
+@Data
+@NoArgsConstructor
 public class AddUserRequest {
 
     @ApiModelProperty(notes = "The id of the user")
@@ -16,28 +20,5 @@ public class AddUserRequest {
     @ApiModelProperty(notes = "The user´s  e-mail")
     private String userEmail;
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getUserEmail() {
-        return userEmail;
-    }
-
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
-    }
 }
 
