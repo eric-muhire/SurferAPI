@@ -10,4 +10,6 @@ public class AddBeachRequest {
 
     @ApiModelProperty(notes = "Name of the beach")
     private String beachName;
+    @ApiModelProperty(notes = "The specific ID for beach")
+    private long id;
 }

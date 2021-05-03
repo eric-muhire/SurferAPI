@@ -11,12 +11,12 @@ import java.util.UUID;
 @Service
 public class BeachRepository {
 
-    Map<UUID, Beach> beaches=new HashMap<>();
+    Map<Long, Beach> beaches=new HashMap<>();
     public Collection<Beach> getAll(){
 
         return beaches.values();
     }
-    public Beach getById (UUID id){
+    public Beach getById (long id){
 
         return beaches.get(id);
     }
@@ -24,11 +24,11 @@ public class BeachRepository {
         beaches.put(beach.getId(),beach);
         return beaches.get(beach.getId());
     }
-    public Beach updateBeach(UUID id, Beach beach){
+    public Beach updateBeach(long id, Beach beach){
         beaches.put(id, beach);
         return beaches.get(id);
     }
-    public void deleteBeach (UUID id) {
+    public void deleteBeach (long id) {
         beaches.remove(id);
 
     }
