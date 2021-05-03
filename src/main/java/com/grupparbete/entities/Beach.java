@@ -16,7 +16,7 @@ import java.util.UUID;
 public class Beach {
     @ApiModelProperty(notes = "Unique Id and name of the beach")
 
-        private UUID id;
+        private long id;
 
         private String beachName;
 

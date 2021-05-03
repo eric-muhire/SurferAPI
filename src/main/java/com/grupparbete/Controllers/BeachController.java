@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("api/v1/beach")
@@ -32,7 +31,7 @@ private BeachService beachService;
             notes = "Get beach with a specific Id",
             response = Beach.class)
     public Beach getById (@ApiParam(value = "Id of the beach",
-            required = true) @PathVariable UUID id) {
+            required = true) @PathVariable long id) {
 
         return beachService.getById(id);
     }
@@ -40,15 +39,15 @@ private BeachService beachService;
     @ApiOperation(value = "Add new beach",
             notes = "Create a new beach",
             response = Beach.class)
-    public Beach addNewBeach(@RequestBody AddBeachRequest request){
+    public Beach addNewBeach(@RequestBody AddBeachRequest request, long id){
 
-            return beachService.addBeach(request);
+            return beachService.addBeach(request, id);
     }
     @PutMapping ("/{id}")
     @ApiOperation(value = "Update beach by Id",
             notes = "Id required to update beach",
             response = Beach.class)
-    public Beach updateBeach(@PathVariable UUID id,
+    public Beach updateBeach(@PathVariable long id,
                            @RequestBody UpdateBeachRequest request){
 
             return beachService.updateBeach(id,request);
@@ -57,7 +56,7 @@ private BeachService beachService;
     @ApiOperation(value = "Delete beach by Id",
             notes = "Id required to delete beach",
             response = Beach.class)
-    public void deleteBeach (@ApiParam(value = "Id of the beach", required = true) @PathVariable UUID id) {
+    public void deleteBeach (@ApiParam(value = "Id of the beach", required = true) @PathVariable long id) {
 
     beachService.deleteBeach(id);
     }
