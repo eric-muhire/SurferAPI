@@ -6,16 +6,15 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 @Service
 public class PostInMemoryRepository {
-    Map<UUID, Post> posts=new HashMap<UUID, Post>();
+    Map<Long, Post> posts=new HashMap<>();
     public Collection<Post> getAll(){
         return posts.values();
 
     }
-    public Post getById(UUID id){
+    public Post getById(long id){
 
         return posts.get(id);
     }
@@ -23,11 +22,11 @@ public class PostInMemoryRepository {
         posts.put(post.getId(),post);
         return posts.get(post.getId());
     }
-    public Post updatePost(UUID id, Post post){
+    public Post updatePost(long id, Post post){
         posts.put(id, post);
         return posts.get(id);
     }
-    public void deletePost(UUID id){
+    public void deletePost(long id){
 
         posts.remove(id);
 }

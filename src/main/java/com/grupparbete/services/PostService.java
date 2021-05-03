@@ -21,14 +21,14 @@ public class PostService {
 
         return postRepository.getAll();
     }
-    public Post getById(UUID id) {
+    public Post getById(long id) {
 
         return postRepository.getById(id);
     }
     public Post addPost(AddPostRequest request) {
 
         var post = new Post();
-        post.setId(UUID.randomUUID());
+        post.setId(request.getId());
         post.setWeather(request.getWeather());
         post.setWaves(request.getWaves());
         post.setBeachId(request.getBeachId());
@@ -38,7 +38,7 @@ public class PostService {
 
         return postRepository.addPost(post);
     }
-    public Post updatePost(UUID id, UpdatePostRequest request){
+    public Post updatePost(long id, UpdatePostRequest request){
         var post = postRepository.getById(id);
         post.setWeather(request.getWeather());
         post.setUpdatedAt(new Date());
@@ -47,7 +47,7 @@ public class PostService {
         return postRepository.updatePost(id, post);
 
     }
-    public void deletePost(UUID id){
+    public void deletePost(long id){
         postRepository.deletePost(id);
 
     }

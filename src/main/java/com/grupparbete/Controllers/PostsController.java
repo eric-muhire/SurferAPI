@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("api/v1/posts")
@@ -35,7 +34,7 @@ public class PostsController {
     response = Post.class)
 
     public Post getById (@ApiParam(value = "Id of the post",
-            required = true) @PathVariable UUID id) {
+            required = true) @PathVariable long id) {
 
         return postService.getById(id);
     }
@@ -52,7 +51,7 @@ public class PostsController {
             notes = "Id required to update post",
             response = Post.class)
     public Post updatePost(@ApiParam(value = "Id of the post", required = true)
-                               @PathVariable UUID id, @RequestBody UpdatePostRequest request){
+                               @PathVariable long id, @RequestBody UpdatePostRequest request){
 
             return postService.updatePost(id, request);
     }
@@ -61,7 +60,7 @@ public class PostsController {
             notes = "Id required to delete post",
             response = Post.class)
     public void deletePost (@ApiParam(value = "Id of the post", required = true)
-                                @PathVariable UUID id) {
+                                @PathVariable long id) {
             postService.deletePost(id);
     }
 

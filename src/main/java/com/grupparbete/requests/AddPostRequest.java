@@ -21,5 +21,8 @@ public class AddPostRequest {
     private Date createdAt;
     @ApiModelProperty(notes = "The user's ID specification")
     private int userId;
+    @ApiModelProperty(notes = "The specific ID for post")
+    private long id;
+
 
 }
