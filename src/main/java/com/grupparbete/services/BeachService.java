@@ -27,7 +27,7 @@ public class BeachService {
 
     public Beach addBeach(AddBeachRequest request, long id){
         var beach = new Beach();
-        beach.setId(id);
+        beach.setId(request.getId());
         beach.setBeachName(request.getBeachName());
 
         return beachRepository.addBeach(beach);
