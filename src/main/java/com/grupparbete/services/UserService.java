@@ -1,5 +1,6 @@
 package com.grupparbete.services;
 
+import com.grupparbete.entities.Post;
 import com.grupparbete.entities.User;
 import com.grupparbete.repositories.UserInMemoryRepository;
 import com.grupparbete.requests.AddUserRequest;
@@ -37,4 +38,5 @@ public class UserService {
     public void deleteUser(int userId){
         userRepository.deleteUser(userId);
     }
+
 }

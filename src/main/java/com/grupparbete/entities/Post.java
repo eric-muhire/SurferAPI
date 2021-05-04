@@ -24,7 +24,9 @@ public class Post {
     private Date createdAt;
     @ApiModelProperty(notes = "The date when a post was last updated")
     private Date updatedAt;
-    @ApiModelProperty(notes = "Unique identifier for user")
-    private int userId;
+    //@ApiModelProperty(notes = "Unique identifier for user")
+   // private int userId;
+
+    private User user;
 
 }

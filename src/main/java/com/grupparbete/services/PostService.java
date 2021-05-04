@@ -2,6 +2,7 @@ package com.grupparbete.services;
 
 
 import com.grupparbete.entities.Post;
+import com.grupparbete.entities.User;
 import com.grupparbete.repositories.PostInMemoryRepository;
 import com.grupparbete.requests.AddPostRequest;
 import com.grupparbete.requests.UpdatePostRequest;
@@ -26,6 +27,11 @@ public class PostService {
     }
     public Post addPost(AddPostRequest request) {
 
+        User user=new User();
+        user.setUserName(request.getUserName());
+        user.setUserEmail(request.getUserEmail());
+        user.setUserId(request.getUserId());
+
         var post = new Post();
         post.setId(request.getId());
         post.setWeather(request.getWeather());
@@ -33,7 +39,9 @@ public class PostService {
         post.setBeachId(request.getBeachId());
         post.setCreatedAt(new Date());
         post.setUpdatedAt(request.getCreatedAt());
-        post.setUserId(request.getUserId());
+       // post.setUserId(request.getUserId());
+
+        post.setUser(user);
 
         return postRepository.addPost(post);
     }
