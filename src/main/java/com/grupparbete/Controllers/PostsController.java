@@ -2,9 +2,12 @@ package com.grupparbete.Controllers;
 
 
 import com.grupparbete.entities.Post;
+import com.grupparbete.entities.User;
+import com.grupparbete.repositories.UserInMemoryRepository;
 import com.grupparbete.requests.AddPostRequest;
 import com.grupparbete.requests.UpdatePostRequest;
 import com.grupparbete.services.PostService;
+import com.grupparbete.services.UserService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,8 @@ public class PostsController {
 
     @Autowired
             private PostService postService;
+    private UserInMemoryRepository userRepository;
+    private UserService userService;
 
     @GetMapping("/")
     @ApiOperation(value = "Get all posts",
@@ -62,6 +67,17 @@ public class PostsController {
     public void deletePost (@ApiParam(value = "Id of the post", required = true)
                                 @PathVariable long id) {
             postService.deletePost(id);
+
+    }
+    @GetMapping("/{userId/userId}")
+    @ApiOperation(
+            value = "Get Surfer by userId",
+            notes = "Get Surfer with a specific userId",
+            response=User.class)
+    public User getByUserId(@ApiParam(value ="userId of the surfer",required = true )
+                        @PathVariable int userId) {
+
+        return userRepository.getById(userId);
     }
 
 }
