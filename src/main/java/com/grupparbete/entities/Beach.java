@@ -14,10 +14,10 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 public class Beach {
+
     @ApiModelProperty(notes = "Unique Id and name of the beach")
-
         private long id;
-
+    @ApiModelProperty(notes = "Unique Name of the beach")
         private String beachName;
 
 }
