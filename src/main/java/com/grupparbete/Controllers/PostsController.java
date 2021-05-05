@@ -69,15 +69,6 @@ public class PostsController {
             postService.deletePost(id);
 
     }
-    @GetMapping("/{userId/userId}")
-    @ApiOperation(
-            value = "Get Surfer by userId",
-            notes = "Get Surfer with a specific userId",
-            response=User.class)
-    public User getByUserId(@ApiParam(value ="userId of the surfer",required = true )
-                        @PathVariable int userId) {
 
-        return userRepository.getById(userId);
-    }
 
 }
