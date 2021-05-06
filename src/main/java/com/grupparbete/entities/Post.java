@@ -42,9 +42,9 @@ public class Post {
     @Column(name = "updatedAt")
     private Date updatedAt;
 
-
     //@ApiModelProperty(notes = "Unique identifier for user")
    // private int userId;
+
 
   //  private User user; (to use later)
 

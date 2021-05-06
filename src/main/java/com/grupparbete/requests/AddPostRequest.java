@@ -17,8 +17,6 @@ public class AddPostRequest {
     private String waves;
     @ApiModelProperty(notes = "The time/date of created post")
     private Date createdAt;
-    //@ApiModelProperty(notes = "The user's ID specification")
-   // private int userId;
     @ApiModelProperty(notes = "The specific ID for post")
     private long id;
 

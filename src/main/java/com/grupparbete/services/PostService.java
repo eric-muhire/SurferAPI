@@ -39,7 +39,7 @@ public class PostService {
         post.setWaves(request.getWaves());
         post.setCreatedAt(new Date());
         post.setUpdatedAt(request.getCreatedAt());
-       // post.setUserId(request.getUserId());
+
 
       //  post.setUser(user); (to use later)
 
