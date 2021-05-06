@@ -14,8 +14,6 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 public class Beach {
-
-
     @ApiModelProperty(notes = "Unique identifier for beach")
         private long id;
     @ApiModelProperty(notes = "Unique Name of the beach")

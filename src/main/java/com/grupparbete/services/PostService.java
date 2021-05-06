@@ -3,7 +3,7 @@ package com.grupparbete.services;
 
 import com.grupparbete.entities.Post;
 import com.grupparbete.entities.User;
-import com.grupparbete.repositories.PostInMemoryRepository;
+import com.grupparbete.repositories.PostSqlRepository;
 import com.grupparbete.requests.AddPostRequest;
 import com.grupparbete.requests.UpdatePostRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,23 +14,24 @@ import java.util.Date;
 
 @Service
 public class PostService {
+
     @Autowired
-    private PostInMemoryRepository postRepository;
+    private PostSqlRepository repository;
 
     public Collection<Post>getAll(){
 
-        return postRepository.getAll();
+        return repository.findAll();
     }
     public Post getById(long id) {
 
-        return postRepository.getById(id);
+        return repository.findById(id).get();
     }
     public Post addPost(AddPostRequest request) {
 
-        User user=new User();
-        user.setUserName(request.getUserName());
-        user.setUserEmail(request.getUserEmail());
-        user.setUserId(request.getUserId());
+        //User user=new User();
+        //user.setUserName(request.getUserName());
+        //user.setUserEmail(request.getUserEmail());
+        //user.setUserId(request.getUserId());
 
         var post = new Post();
         post.setId(request.getId());
@@ -40,21 +41,21 @@ public class PostService {
         post.setUpdatedAt(request.getCreatedAt());
 
 
-        post.setUser(user);
+      //  post.setUser(user); (to use later)
 
-        return postRepository.addPost(post);
+        return repository.save(post);
     }
     public Post updatePost(long id, UpdatePostRequest request){
-        var post = postRepository.getById(id);
+        var post = repository.findById(id).get();
         post.setWeather(request.getWeather());
         post.setUpdatedAt(new Date());
         post.setWaves(request.getWaves());
         post.setUpdatedAt(new Date());
-        return postRepository.updatePost(id, post);
+        return repository.save(post);
 
     }
     public void deletePost(long id){
-        postRepository.deletePost(id);
+        repository.deleteById(id);
 
     }
 }
