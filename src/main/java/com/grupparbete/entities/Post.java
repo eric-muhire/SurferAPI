@@ -20,7 +20,7 @@ import java.util.Date;
 public class Post {
     @javax.persistence.Id
     @ApiModelProperty(notes = "Unique identifier for post")
-    @Id
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
@@ -42,10 +42,14 @@ public class Post {
     @Column(name = "updatedAt")
     private Date updatedAt;
 
+    @OneToOne
+    @JoinColumn(name="beach_id")
+    private Beach beach;
     //@ApiModelProperty(notes = "Unique identifier for user")
    // private int userId;
 
 
   //  private User user; (to use later)
+
 
 }

@@ -20,9 +20,8 @@ public class AddPostRequest {
     @ApiModelProperty(notes = "The specific ID for post")
     private long id;
 
-    private String userName;
-    private int userId;
-    private String userEmail;
+
+    private String beachName;
 
 
 }

@@ -1,8 +1,10 @@
 package com.grupparbete.services;
 
 
+import com.grupparbete.entities.Beach;
 import com.grupparbete.entities.Post;
 import com.grupparbete.entities.User;
+import com.grupparbete.repositories.BeachSqlRepository;
 import com.grupparbete.repositories.PostSqlRepository;
 import com.grupparbete.requests.AddPostRequest;
 import com.grupparbete.requests.UpdatePostRequest;
@@ -17,6 +19,8 @@ public class PostService {
 
     @Autowired
     private PostSqlRepository repository;
+    @Autowired
+    private BeachSqlRepository beachSqlRepository;
 
     public Collection<Post>getAll(){
 
@@ -27,6 +31,11 @@ public class PostService {
         return repository.findById(id).get();
     }
     public Post addPost(AddPostRequest request) {
+
+        var beach=new Beach();
+        beach.setBeachName(request.getBeachName());
+        beach.setId(request.getId());
+        beach=beachSqlRepository.save(beach);
 
         //User user=new User();
         //user.setUserName(request.getUserName());
