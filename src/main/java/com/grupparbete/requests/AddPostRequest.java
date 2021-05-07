@@ -24,4 +24,8 @@ public class AddPostRequest {
     private String beachName;
 
 
+    private String userName;
+    private String userEmail;
+
+
 }
