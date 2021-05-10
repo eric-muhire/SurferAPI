@@ -9,6 +9,8 @@ import com.grupparbete.repositories.PostSqlRepository;
 import com.grupparbete.repositories.UserSqlRepository;
 import com.grupparbete.requests.AddPostRequest;
 import com.grupparbete.requests.UpdatePostRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,7 @@ import java.util.Date;
 @Service
 public class PostService {
 
+    Logger logger= LoggerFactory.getLogger(PostService.class);
     @Autowired
     private PostSqlRepository repository;
     @Autowired
@@ -69,7 +72,14 @@ public class PostService {
 
     }
     public void deletePost(long id){
-        repository.deleteById(id);
+        try{
+            repository.deleteById(id);
+            logger.info("Successfullt deleted post by id"+ id);
+        }
+        catch (Exception exception){
+            logger.error(("Failed to delete post with id"));
+
+        }
 
     }
 }

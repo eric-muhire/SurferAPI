@@ -1,0 +1,29 @@
+--DROP TABLE Post
+--DROP TABLE Beach
+--DROP TABLE [User]
+
+
+CREATE TABLE Beach(
+id int IDENTITY(1,1) PRIMARY KEY,
+beach_name varchar(255) NOT NULL,
+)
+
+CREATE TABLE [User](
+id int IDENTITY(1,1) PRIMARY KEY,
+user_name varchar(255) NOT NULL,
+user_email varchar(255) NOT NULL,
+)
+
+
+CREATE TABLE Post(
+id int IDENTITY(1,1) PRIMARY KEY,
+weather varchar(255) NOT NULL,
+waves varchar(255) NOT NULL,
+created_at datetime NOT NULL,
+updated_at datetime NULL,
+
+beach_id int FOREIGN KEY REFERENCES Beach (id),
+
+user_id int FOREIGN KEY REFERENCES [User] (id)
+
+);

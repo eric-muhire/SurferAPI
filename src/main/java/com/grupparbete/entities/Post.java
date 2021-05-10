@@ -42,11 +42,9 @@ public class Post {
     @Column(name = "updatedAt")
     private Date updatedAt;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name="beach_id")
     private Beach beach;
-    //@ApiModelProperty(notes = "Unique identifier for user")
-   // private int userId;
 
     @OneToOne
     @JoinColumn(name="user_id")
