@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 import java.util.UUID;
@@ -22,8 +21,9 @@ public class Beach {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @javax.persistence.Id
+
     @Column(name = "id")
+    @Id
     private long id;
 
     @ApiModelProperty(notes = "Unique Name of the beach")

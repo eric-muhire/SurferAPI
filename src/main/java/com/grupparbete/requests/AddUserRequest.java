@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class AddUserRequest {
 
     @ApiModelProperty(notes = "The id of the user")
-    private int userId;
+    private int id;
 
     @ApiModelProperty(notes = "The name of the user")
     private String userName;

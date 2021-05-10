@@ -5,7 +5,6 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -18,11 +17,12 @@ import java.util.Date;
 @Table(name="Post")
 
 public class Post {
-    @javax.persistence.Id
+
     @ApiModelProperty(notes = "Unique identifier for post")
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    @Id
     private long id;
 
 
@@ -48,8 +48,11 @@ public class Post {
     //@ApiModelProperty(notes = "Unique identifier for user")
    // private int userId;
 
+    @OneToOne
+    @JoinColumn(name="user_id")
+  private User user;
 
-  //  private User user; (to use later)
+
 
 
 }

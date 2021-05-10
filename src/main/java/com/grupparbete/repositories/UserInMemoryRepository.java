@@ -16,21 +16,21 @@ public class UserInMemoryRepository {
         return users.values();
     }
 
-    public User getById(int userId) {
-        return users.get(userId);
+    public User getById(int id) {
+        return users.get(id);
         }
         public User addUser (User user){
-            users.put(user.getUserId(), user);
-            return users.get(user.getUserId());
+            users.put(user.getId(), user);
+            return users.get(user.getId());
 
         }
-        public User updateUser ( int userId, User user){
-            users.put(userId, user);
-            return users.get(userId);
+        public User updateUser ( int id, User user){
+            users.put(id, user);
+            return users.get(id);
 
         }
-        public void deleteUser (int userId){
-            users.remove(userId);
+        public void deleteUser (int id){
+            users.remove(id);
         }
     }
 

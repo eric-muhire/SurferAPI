@@ -6,6 +6,7 @@ import com.grupparbete.entities.Post;
 import com.grupparbete.entities.User;
 import com.grupparbete.repositories.BeachSqlRepository;
 import com.grupparbete.repositories.PostSqlRepository;
+import com.grupparbete.repositories.UserSqlRepository;
 import com.grupparbete.requests.AddPostRequest;
 import com.grupparbete.requests.UpdatePostRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,9 @@ public class PostService {
     @Autowired
     private BeachSqlRepository beachSqlRepository;
 
+    @Autowired
+    private UserSqlRepository userSqlRepository;
+
     public Collection<Post>getAll(){
 
         return repository.findAll();
@@ -37,10 +41,11 @@ public class PostService {
         beach.setId(request.getId());
         beach=beachSqlRepository.save(beach);
 
-        //User user=new User();
-        //user.setUserName(request.getUserName());
-        //user.setUserEmail(request.getUserEmail());
-        //user.setUserId(request.getUserId());
+        var user=new User();
+        user.setUserName(request.getUserName());
+        user.setUserEmail(request.getUserEmail());
+        user.setId((int) request.getId());
+        user=userSqlRepository.save(user);
 
         var post = new Post();
         post.setId(request.getId());
