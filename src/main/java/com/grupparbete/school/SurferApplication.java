@@ -21,7 +21,7 @@ import java.util.Collections;
 @Slf4j
 @SpringBootApplication
 @EnableSwagger2
-@ComponentScan({"com.grupparbete.Controllers","com.grupparbete.services","com.grupparbete.requests","com.grupparbete.repositories"})
+@ComponentScan({"com.grupparbete.Controllers","com.grupparbete.services","com.grupparbete.requests"})
 @EntityScan("com.grupparbete.entities")
 @EnableJpaRepositories("com.grupparbete.repositories")
 public class SurferApplication {

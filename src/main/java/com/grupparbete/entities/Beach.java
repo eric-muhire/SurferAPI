@@ -30,6 +30,10 @@ public class Beach {
     @Column(name = "beachName")
         private String beachName;
 
+    @OneToOne
+    @JoinColumn(name="beach_id")
+    private Beach beach;
+
 }
 
 
