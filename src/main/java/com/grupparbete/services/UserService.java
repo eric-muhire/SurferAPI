@@ -17,8 +17,9 @@ public class UserService {
     public Collection<User>getAll(){
         return userRepository.findAll();
     }
-    public User getById(int id){
+    public User getById(int id) {
         return userRepository.findById(id).get();
+
     }
     public User addUser(AddUserRequest request){
         var user=new User();

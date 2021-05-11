@@ -10,5 +10,7 @@ import java.util.List;
 public interface PostSqlRepository extends JpaRepository<Post,Long> {
 
 //List<Post> findPostByBeachId(String beachId);
+//List<Post> findPostByUserName(String userName);
+
 
 }

@@ -42,6 +42,8 @@ public class Post {
     @Column(name = "updatedAt")
     private Date updatedAt;
 
+
+
     @ManyToOne
     @JoinColumn(name="beach_id")
     private Beach beach;
@@ -49,8 +51,6 @@ public class Post {
     @OneToOne
     @JoinColumn(name="user_id")
   private User user;
-
-
 
 
 }

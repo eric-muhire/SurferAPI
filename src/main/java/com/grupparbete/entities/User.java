@@ -17,6 +17,7 @@ public class User {
     @ApiModelProperty(notes = "Unique identifier for User")
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
    @Id
     @Column(name = "id")
     private int id;
