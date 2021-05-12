@@ -1,5 +1,6 @@
 package com.grupparbete.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -8,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.UUID;
 
 @ApiModel(description = "This is the beach model",
@@ -21,7 +23,7 @@ public class Beach {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-
+    @JsonIgnore
     @Column(name = "id")
     @Id
     private long id;
@@ -30,9 +32,9 @@ public class Beach {
     @Column(name = "beachName")
         private String beachName;
 
-    @OneToOne
-    @JoinColumn(name="beach_id")
-    private Beach beach;
+    @JsonIgnore
+@OneToMany(mappedBy = "beach")
+private List <Post> posts;
 
 }
 

@@ -1,19 +1,15 @@
 package com.grupparbete.Controllers;
 
 
-import com.grupparbete.entities.Beach;
 import com.grupparbete.entities.Post;
 import com.grupparbete.entities.User;
-import com.grupparbete.repositories.UserInMemoryRepository;
 import com.grupparbete.requests.AddPostRequest;
 import com.grupparbete.requests.UpdatePostRequest;
 import com.grupparbete.services.PostService;
-import com.grupparbete.services.UserService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.slf4j.spi.LoggerFactoryBinder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,12 +24,11 @@ public class PostsController {
 
     @Autowired
             private PostService postService;
-            private Beach beach;
-             private UserService userService;
+            private User user;
 
 
-             @GetMapping("/log")
-             public String testLogging(){
+    @GetMapping("/log")
+    public String testLogging(){
 
                  logg.trace ("Nice Trace Logging");
                  logg.debug("Nice Debug Logging");
@@ -42,7 +37,7 @@ public class PostsController {
                  logg.error("Good Error Logging");
 
                  return "Logging is working";
-             }
+    }
 
     @GetMapping("/")
     @ApiOperation(value = "Get all posts",

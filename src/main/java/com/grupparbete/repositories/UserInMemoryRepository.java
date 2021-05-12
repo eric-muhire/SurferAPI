@@ -18,10 +18,12 @@ public class UserInMemoryRepository {
 
     public User getById(int id) {
         return users.get(id);
+
         }
-        public User addUser (User user){
-            users.put(user.getId(), user);
-            return users.get(user.getId());
+
+    public User addUser (User user){
+        users.put(user.getId(), user);
+        return users.get(user.getId());
 
         }
         public User updateUser ( int id, User user){

@@ -12,6 +12,7 @@ import com.grupparbete.requests.UpdatePostRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -30,19 +31,16 @@ public class PostService {
     private UserSqlRepository userSqlRepository;
 
     public Collection<Post>getAll(){
+        Sort sort=Sort.by(Sort.Direction.ASC,"beach");
 
-        return repository.findAll();
+        return repository.findAll(sort);
     }
     public Post getById(long id) {
 
         return repository.findById(id).get();
+
     }
     public Post addPost(AddPostRequest request) {
-
-        var beach=new Beach();
-        beach.setBeachName(request.getBeachName());
-        beach.setId(request.getId());
-        beach=beachSqlRepository.save(beach);
 
         var user=new User();
         user.setUserName(request.getUserName());
@@ -50,15 +48,24 @@ public class PostService {
         user.setId((int) request.getId());
         user=userSqlRepository.save(user);
 
+
+        var beach=new Beach();
+        beach.setBeachName(request.getBeachName());
+        beach.setId(request.getId());
+
+        beach=beachSqlRepository.save(beach);
+
+
         var post = new Post();
         post.setId(request.getId());
         post.setWeather(request.getWeather());
+        post.setBeach(beach);
+        post.setUser(user);
         post.setWaves(request.getWaves());
         post.setCreatedAt(new Date());
         post.setUpdatedAt(request.getCreatedAt());
-
-
-      //  post.setUser(user); (to use later)
+        beachSqlRepository.findById(request.getId());
+        userSqlRepository.findById((int) request.getId());
 
         return repository.save(post);
     }
@@ -82,4 +89,5 @@ public class PostService {
         }
 
     }
+
 }
