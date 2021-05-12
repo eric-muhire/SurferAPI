@@ -13,11 +13,11 @@ import org.springframework.context.annotation.Configuration;
 public class LoggingAspect {
     Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
 
-  @Before (value = "execution(*com.grupparbete.controllers.*.*(..))");
-  public void beforeAdvice (JoinPoint joinpoint){
+  @Before (value = "execution(* com.grupparbete.controllers.*.*(..))");
+  public void beforeAdvice (JoinPoint joinPoint){
       logger.info("Incoming request to:"+
-              joinpoint.getSignature().getDeclaringTypeName() +" " +
-              joinpoint.getSignature().getName());
+              joinPoint.getSignature().getDeclaringTypeName() +" " +
+              joinPoint.getSignature().getName());
   }
 
 }
