@@ -14,12 +14,13 @@ public class LoggingAspect {
 
     Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
 
-  @Before (value = "execution(* com.grupparbete.Controllers.*.*(..))")
+
+  @Before (value = "execution(* com.grupparbete.controllers.*.*(..))");
   public void beforeAdvice (JoinPoint joinPoint){
       logger.info("Incoming request to:"+
               joinPoint.getSignature().getDeclaringTypeName() +" -" +
-              joinPoint.getSignature().getName()
-              );
+              joinPoint.getSignature().getName());
+
   }
 
 }
