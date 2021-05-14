@@ -1,16 +1,15 @@
 package com.grupparbete.requests;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.util.Date;
 
 @ApiModel(description = "Add a new post Request")
 @Data
 @NoArgsConstructor
 public class AddPostRequest {
+
     @ApiModelProperty(notes = "The weather description")
     private String weather;
     @ApiModelProperty(notes = "The waves description")
@@ -22,8 +21,6 @@ public class AddPostRequest {
 
 
     private String beachName;
-
-
     private String userName;
     private String userEmail;
 

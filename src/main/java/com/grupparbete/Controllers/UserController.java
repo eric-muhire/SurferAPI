@@ -1,5 +1,4 @@
 package com.grupparbete.Controllers;
-
 import com.grupparbete.entities.User;
 import com.grupparbete.requests.AddUserRequest;
 import com.grupparbete.requests.UpdateUserRequest;
@@ -8,7 +7,6 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.awt.font.TextLayout;
 import java.util.Collection;
 import java.util.HashMap;
@@ -17,6 +15,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("api/v1/user/login")
 public class UserController {
+        
     @Autowired
     private UserService userService;
 
