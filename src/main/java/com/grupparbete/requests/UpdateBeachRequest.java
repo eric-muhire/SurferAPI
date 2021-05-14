@@ -7,6 +7,7 @@ import lombok.Data;
 @ApiModel(description = "Update Beach Request")
 @Data
 public class UpdateBeachRequest {
+    
     @ApiModelProperty(notes = "Name of the beach")
     private String beachName;
 

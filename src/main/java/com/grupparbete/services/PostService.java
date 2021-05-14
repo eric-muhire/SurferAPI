@@ -15,20 +15,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import lombok.RequiredArgsConstructor;
+
 import java.util.Collection;
 import java.util.Date;
 
 @Service
+@RequiredArgsConstructor
 public class PostService {
 
     Logger logger= LoggerFactory.getLogger(PostService.class);
-    @Autowired
-    private PostSqlRepository repository;
-    @Autowired
-    private BeachSqlRepository beachSqlRepository;
 
-    @Autowired
-    private UserSqlRepository userSqlRepository;
+ 
+    private final PostSqlRepository repository;
+    private final BeachSqlRepository beachSqlRepository;
+    private final UserSqlRepository userSqlRepository;
 
     public Collection<Post>getAll(){
         Sort sort=Sort.by(Sort.Direction.ASC,"beach");
@@ -42,18 +43,17 @@ public class PostService {
     }
     public Post addPost(AddPostRequest request) {
 
-        var user=new User();
+        var user = new User();
         user.setUserName(request.getUserName());
         user.setUserEmail(request.getUserEmail());
         user.setId((int) request.getId());
-        user=userSqlRepository.save(user);
+        user = userSqlRepository.save(user);
 
 
-        var beach=new Beach();
+        var beach = new Beach();
         beach.setBeachName(request.getBeachName());
         beach.setId(request.getId());
-
-        beach=beachSqlRepository.save(beach);
+        beach = beachSqlRepository.save(beach);
 
 
         var post = new Post();
@@ -67,24 +67,27 @@ public class PostService {
         beachSqlRepository.findById(request.getId());
         userSqlRepository.findById((int) request.getId());
 
-        return repository.save(post);
+        logger.info ("successfully created a new Post");
+            return repository.save(post);
+
+
     }
     public Post updatePost(long id, UpdatePostRequest request){
         var post = repository.findById(id).get();
         post.setWeather(request.getWeather());
-        post.setUpdatedAt(new Date());
         post.setWaves(request.getWaves());
         post.setUpdatedAt(new Date());
-        return repository.save(post);
+        logger.info ("successfully updated Post");
+             return repository.save(post);
 
     }
     public void deletePost(long id){
         try{
             repository.deleteById(id);
-            logger.info("Successfullt deleted post by id"+ id);
+            logger.info("Successfullt deleted post by Id " + id);
         }
         catch (Exception exception){
-            logger.error(("Failed to delete post with id"));
+            logger.error(("Failed to delete post with Id"));
 
         }
 

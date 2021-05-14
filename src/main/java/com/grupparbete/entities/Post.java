@@ -1,11 +1,9 @@
 package com.grupparbete.entities;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -43,11 +41,12 @@ public class Post {
     private Date updatedAt;
 
 
-
+    //Many to one relation between post and beach
     @ManyToOne
     @JoinColumn(name="beach_id")
     private Beach beach;
 
+    //Many to one relation between post and User
     @OneToOne
     @JoinColumn(name="user_id")
   private User user;

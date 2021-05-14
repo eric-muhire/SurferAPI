@@ -26,6 +26,7 @@ private BeachService beachService;
         return beachService.getAll();
             
     }
+    
     @GetMapping ("/{id}")
     @ApiOperation(value = "Get a specific beach by Id",
             notes = "Get beach with a specific Id",
@@ -35,30 +36,31 @@ private BeachService beachService;
 
         return beachService.getById(id);
     }
+
     @PostMapping("/")
     @ApiOperation(value = "Add new beach",
             notes = "Create a new beach",
             response = Beach.class)
     public Beach addNewBeach(@RequestBody AddBeachRequest request, long id){
-
             return beachService.addBeach(request, id);
     }
+
     @PutMapping ("/{id}")
     @ApiOperation(value = "Update beach by Id",
             notes = "Id required to update beach",
             response = Beach.class)
     public Beach updateBeach(@PathVariable long id,
                            @RequestBody UpdateBeachRequest request){
-
             return beachService.updateBeach(id,request);
     }
+
     @DeleteMapping ("/{id}")
     @ApiOperation(value = "Delete beach by Id",
             notes = "Id required to delete beach",
             response = Beach.class)
     public void deleteBeach (@ApiParam(value = "Id of the beach", required = true) @PathVariable long id) {
-
     beachService.deleteBeach(id);
+
     }
 
 }
