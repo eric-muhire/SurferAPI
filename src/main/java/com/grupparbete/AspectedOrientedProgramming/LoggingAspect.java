@@ -15,7 +15,7 @@ public class LoggingAspect {
     Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
 
 
-  @Before (value = "execution(* com.grupparbete.controllers.*.*(..))");
+  @Before (value = "execution(* com.grupparbete.controllers.*.*(..))")
   public void beforeAdvice (JoinPoint joinPoint){
       logger.info("Incoming request to:"+
               joinPoint.getSignature().getDeclaringTypeName() +" -" +
