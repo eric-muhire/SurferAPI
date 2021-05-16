@@ -16,7 +16,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
-    private int id;
+    private long id;
 
     @ApiModelProperty(notes = "Name for the user")
     @Column(name = "userName")

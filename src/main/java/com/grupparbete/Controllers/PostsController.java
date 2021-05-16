@@ -15,13 +15,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import java.util.Collection;
 @RestController
-@RequestMapping("api/v1/posts")
 @RequiredArgsConstructor
+@RequestMapping("api/v1/posts")
 public class PostsController {
 
     Logger logger =LoggerFactory.getLogger(PostsController.class);
-    
-            private final PostService postService;
+    private final PostService postService;
 
     @GetMapping("/log")
     public String testLogging(){
