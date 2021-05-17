@@ -7,10 +7,8 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import java.awt.font.TextLayout;
+
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 @RequestMapping("api/v1/user/login")
@@ -36,7 +34,7 @@ public class UserController {
             notes = "Get Surfer with a specific userId",
             response=User.class)
     public User getById(@ApiParam(value ="userId of the surfer",required = true )
-                        @PathVariable int userId) {
+                        @PathVariable long userId) {
         return userService.getById(userId);
     }
 
@@ -55,7 +53,7 @@ public class UserController {
             notes = "Only user name will be updated",
             response=User.class)
     public User updateUser(@ApiParam(value ="userId of the surfer",required = true )
-                           @PathVariable int userId,
+                           @PathVariable long userId,
                            @RequestBody UpdateUserRequest request) {
 
         return userService.updateUser(userId, request);
@@ -67,7 +65,7 @@ public class UserController {
             notes = "Delete User with a specific userId ",
             response=User.class)
     public void deleteUser(@ApiParam(value ="userId of the surfer",required = true )
-                           @PathVariable int userId) {
+                           @PathVariable long userId) {
         userService.deleteUser(userId);
     }
 }

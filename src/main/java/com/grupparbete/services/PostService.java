@@ -11,12 +11,9 @@ import com.grupparbete.requests.AddPostRequest;
 import com.grupparbete.requests.UpdatePostRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-
 import lombok.RequiredArgsConstructor;
-
 import java.util.Collection;
 import java.util.Date;
 
@@ -26,7 +23,6 @@ public class PostService {
 
     Logger logger= LoggerFactory.getLogger(PostService.class);
 
- 
     private final PostSqlRepository repository;
     private final BeachSqlRepository beachSqlRepository;
     private final UserSqlRepository userSqlRepository;
@@ -36,7 +32,7 @@ public class PostService {
 
         return repository.findAll(sort);
     }
-    public Post getById(long id) {
+    public Post getById(Long id) {
 
         return repository.findById(id).get();
 
@@ -46,9 +42,8 @@ public class PostService {
         var user = new User();
         user.setUserName(request.getUserName());
         user.setUserEmail(request.getUserEmail());
-        user.setId((int) request.getId());
+        user.setId(request.getId());
         user = userSqlRepository.save(user);
-
 
         var beach = new Beach();
         beach.setBeachName(request.getBeachName());
@@ -65,20 +60,22 @@ public class PostService {
         post.setCreatedAt(new Date());
         post.setUpdatedAt(request.getCreatedAt());
         beachSqlRepository.findById(request.getId());
-        userSqlRepository.findById((int) request.getId());
+        userSqlRepository.findById(request.getId());
+        post=repository.save(post);
 
         logger.info ("successfully created a new Post");
-            return repository.save(post);
+            return post;
 
 
     }
-    public Post updatePost(long id, UpdatePostRequest request){
+    public Post updatePost(Long id, UpdatePostRequest request){
         var post = repository.findById(id).get();
         post.setWeather(request.getWeather());
         post.setWaves(request.getWaves());
         post.setUpdatedAt(new Date());
+        post=repository.save(post);
         logger.info ("successfully updated Post");
-             return repository.save(post);
+             return post;
 
     }
     public void deletePost(long id){

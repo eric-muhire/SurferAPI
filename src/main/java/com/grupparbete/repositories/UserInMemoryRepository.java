@@ -10,13 +10,13 @@ import java.util.Map;
 
 @Service
 public class UserInMemoryRepository {
-    Map<Integer, User> users = new HashMap<Integer, User>();
+    Map<Long, User> users = new HashMap<>();
 
     public Collection<User> getAll() {
         return users.values();
     }
 
-    public User getById(int id) {
+    public User getById(long id) {
         return users.get(id);
 
         }
@@ -26,7 +26,7 @@ public class UserInMemoryRepository {
         return users.get(user.getId());
 
         }
-        public User updateUser ( int id, User user){
+        public User updateUser (Long id, User user){
             users.put(id, user);
             return users.get(id);
 
