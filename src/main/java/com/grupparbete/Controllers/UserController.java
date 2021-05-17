@@ -2,7 +2,7 @@ package com.grupparbete.Controllers;
 import com.grupparbete.entities.User;
 import com.grupparbete.requests.AddUserRequest;
 import com.grupparbete.requests.UpdateUserRequest;
-import com.grupparbete.school.UserService;
+import com.grupparbete.services.UserService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;

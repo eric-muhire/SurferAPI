@@ -5,7 +5,6 @@ import com.grupparbete.repositories.BeachSqlRepository;
 import com.grupparbete.repositories.PostSqlRepository;
 import com.grupparbete.repositories.UserSqlRepository;
 import com.grupparbete.requests.UpdateUserRequest;
-import com.grupparbete.school.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
