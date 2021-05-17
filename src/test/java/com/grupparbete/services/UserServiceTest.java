@@ -26,7 +26,6 @@ class UserServiceTest {
 
 
     @BeforeEach
-
     void initTests(){
 
         this.userSqlRepository= Mockito.mock(UserSqlRepository.class);

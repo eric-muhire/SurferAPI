@@ -19,41 +19,41 @@ import java.util.Collection;
 @RequestMapping("api/v1/posts")
 public class PostsController {
 
-    Logger logger =LoggerFactory.getLogger(PostsController.class);
+    Logger logger = LoggerFactory.getLogger(PostsController.class);
     private final PostService postService;
 
     @GetMapping("/log")
-    public String testLogging(){
+    public String testLogging() {
 
-                 logger.trace ("Great Trace Logging");
-                 logger.debug("Nice Debug Logging");
-                 logger.info("Great Info Logging");
-                 logger.warn("Nice Warn Logging");
-                 logger.error("Good Error Logging");
-                        return "Logging is working";
+        logger.trace("Great Trace Logging");
+        logger.debug("Nice Debug Logging");
+        logger.info("Great Info Logging");
+        logger.warn("Nice Warn Logging");
+        logger.error("Good Error Logging");
+        return "Logging is working";
     }
 
     @GetMapping("/")
     @ApiOperation(value = "Get all posts",
-        notes = "Fetches all posts from the API",
-        response = Post.class,
-        responseContainer = "List")
+            notes = "Fetches all posts from the API",
+            response = Post.class,
+            responseContainer = "List")
     public Collection<Post> getAll() {
         return postService.getAll();
-            
+
     }
 
-    @GetMapping ("/{id}")
+    @GetMapping("/{id}")
     @ApiOperation(value = "Get post by Id",
-        notes = "Get post with a specific Id",
-         response = Post.class)
+            notes = "Get post with a specific Id",
+            response = Post.class)
 
-    public Post getById (@ApiParam(value = "Id of the post",
+    public Post getById(@ApiParam(value = "Id of the post",
             required = true) @PathVariable long id) {
-        var response=postService.getById(id);
-        if (response==null){
-        logger.warn("Could not find post with id:"+id);
-        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "could not fin any post with provided ID");
+        var response = postService.getById(id);
+        if (response == null) {
+            logger.warn("Could not find post with id:" + id);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "could not fin any post with provided ID");
         }
         return response;
     }
@@ -62,29 +62,35 @@ public class PostsController {
     @ApiOperation(value = "Add new post",
             notes = "Create a new post",
             response = Post.class)
-    public Post addNewPost(@RequestBody AddPostRequest request){
-            return postService.addPost(request);
+    public Post addNewPost(@RequestBody AddPostRequest request) {
+        return postService.addPost(request);
     }
 
-    @PutMapping ("/{id}")
+    @PutMapping("/{id}")
     @ApiOperation(value = "Update post by Id",
             notes = "Id required to update post",
             response = Post.class)
     public Post updatePost(@ApiParam(value = "Id of the post", required = true)
-                        @PathVariable long id, @RequestBody UpdatePostRequest request){
-            return postService.updatePost(id, request);
+                           @PathVariable long id, @RequestBody UpdatePostRequest request) {
+        return postService.updatePost(id, request);
     }
-    
-    @DeleteMapping ("/{id}")
+
+    @DeleteMapping("/{id}")
     @ApiOperation(value = "Delete post by Id",
             notes = "Id required to delete post",
             response = Post.class)
-    public void deletePost (@ApiParam(value = "Id of the post", required = true)
-                                @PathVariable long id) {
-            postService.deletePost(id);
+    public void deletePost(@ApiParam(value = "Id of the post", required = true)
+                           @PathVariable long id) {
+        postService.deletePost(id);
 
     }
 
+    @GetMapping("/name/{userName})")
+    public Collection<Post> getByUserName(@PathVariable String userName) {
+
+        return postService.getbyUserName(userName);
+
     }
+}
 
 
