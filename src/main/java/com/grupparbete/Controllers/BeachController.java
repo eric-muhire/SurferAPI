@@ -7,16 +7,19 @@ import com.grupparbete.requests.UpdateBeachRequest;
 import com.grupparbete.services.BeachService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("api/v1/beach")
 public class BeachController {
-@Autowired
-private BeachService beachService;
+
+private final BeachService beachService;
     @GetMapping("/")
     @ApiOperation(value = "Get all Beach-info",
             notes = "Fetches all beaches from the API",
