@@ -1,56 +1,70 @@
 package com.grupparbete.services;
 
+import com.grupparbete.entities.User;
+import com.grupparbete.repositories.BeachSqlRepository;
+import com.grupparbete.repositories.PostSqlRepository;
 import com.grupparbete.repositories.UserSqlRepository;
-import org.junit.jupiter.api.AfterEach;
+import com.grupparbete.requests.UpdateUserRequest;
+import com.grupparbete.school.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 
+import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.verify;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.when;
 
 class UserServiceTest {
 
-    @Mock
+    private UserService sut;
+
     private UserSqlRepository userSqlRepository;
-    AutoCloseable autoCloseable;
-    private UserService underTest;
+    private PostSqlRepository repository;
+    private BeachSqlRepository beachSqlRepository;
+
 
     @BeforeEach
-    void setUp() {
-     AutoCloseable autoCloseable=MockitoAnnotations.openMocks(this);
-        underTest=new UserService(userSqlRepository);
-    }
-    @AfterEach
-    void tearDown() throws Exception {
-        autoCloseable.close();
-    }
+
+    void initTests(){
+
+        this.userSqlRepository= Mockito.mock(UserSqlRepository.class);
+        this.repository= Mockito.mock(PostSqlRepository.class);
+        this.beachSqlRepository=Mockito.mock(BeachSqlRepository.class);
 
 
-    @Test
-    void getAll() {
-        //when
-        underTest.getAll();
-        //then
-        verify(userSqlRepository).findAll();
-    }
-/*
-    @Test
-    void getById() {
+        this.sut=new UserService(this.userSqlRepository,this.repository,this.beachSqlRepository);
+
     }
 
     @Test
-    void addUser() {
+    public void UserService_updateUser_Success(){
+
+        //ARRANGE
+        var user=new User();
+        user.setId(1L);
+        user.setUserName("test");
+        user.setUserEmail("test");
+        Optional<User> userMock;
+        userMock = Optional.of((User) user);
+
+        when(userSqlRepository.findById(anyLong())).thenReturn(userMock);
+        when(userSqlRepository.save(any(User.class))).thenReturn(user);
+
+        var updateUserRequest=new UpdateUserRequest();
+        updateUserRequest.setUserName("mike");
+        updateUserRequest.setUserEmail("mike@gmail.com");
+
+
+        //ACT
+        var result=sut.updateUser(1L, updateUserRequest);
+        //ASSERT
+        assertEquals(updateUserRequest.getUserName(),result.getUserName());
+        assertEquals(updateUserRequest.getUserEmail(),result.getUserEmail());
+
+
     }
 
-    @Test
-    void updateUser() {
-    }
-
-    @Test
-    void deleteUser() {
-    }*/
 }

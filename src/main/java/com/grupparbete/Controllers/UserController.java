@@ -2,20 +2,21 @@ package com.grupparbete.Controllers;
 import com.grupparbete.entities.User;
 import com.grupparbete.requests.AddUserRequest;
 import com.grupparbete.requests.UpdateUserRequest;
-import com.grupparbete.services.UserService;
+import com.grupparbete.school.UserService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("api/v1/user/login")
 public class UserController {
         
-    @Autowired
-    private UserService userService;
+
+    private final UserService userService;
 
     @GetMapping("/")
     @ApiOperation(value ="Get all Users" ,

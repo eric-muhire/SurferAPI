@@ -1,20 +1,24 @@
-package com.grupparbete.services;
+package com.grupparbete.school;
 import com.grupparbete.entities.User;
+import com.grupparbete.repositories.BeachSqlRepository;
+import com.grupparbete.repositories.PostSqlRepository;
 import com.grupparbete.repositories.UserSqlRepository;
 import com.grupparbete.requests.AddUserRequest;
 import com.grupparbete.requests.UpdateUserRequest;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Collection;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
 
-    @Autowired
-    private UserSqlRepository userRepository;
 
-    public UserService(UserSqlRepository userSqlRepository) {
-    }
+    private final UserSqlRepository userRepository;
+    private final PostSqlRepository repository;
+    private final BeachSqlRepository beachSqlRepository;
+
 
     public Collection<User>getAll(){
         return userRepository.findAll();
@@ -28,14 +32,16 @@ public class UserService {
         user.setId(request.getId());
         user.setUserName(request.getUserName());
         user.setUserEmail(request.getUserEmail());
-            return userRepository.save(user);
+        user = userRepository.save(user);
+            return user;
 
     }
     public User updateUser(Long id, UpdateUserRequest request) {
         var user = userRepository.getById(id);
         user.setUserName(request.getUserName());
         user.setUserEmail(request.getUserEmail());
-            return userRepository.save(user);
+        user = userRepository.save(user);
+            return user;
     }
     public void deleteUser(Long id){
         userRepository.deleteById(id);
