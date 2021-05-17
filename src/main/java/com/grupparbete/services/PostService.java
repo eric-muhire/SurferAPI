@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -89,5 +90,10 @@ public class PostService {
         }
 
     }
+    public List<Post> getbyUserName(String userName){
+        return repository.findPostByUserUserName(userName);
+
+    }
+
 
 }

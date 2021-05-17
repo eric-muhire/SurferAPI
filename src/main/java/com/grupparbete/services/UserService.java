@@ -37,7 +37,7 @@ public class UserService {
 
     }
     public User updateUser(Long id, UpdateUserRequest request) {
-        var user = userRepository.getById(id);
+        var user = userRepository.findById(id).get();
         user.setUserName(request.getUserName());
         user.setUserEmail(request.getUserEmail());
         user = userRepository.save(user);
