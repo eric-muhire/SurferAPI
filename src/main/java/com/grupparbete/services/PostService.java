@@ -20,22 +20,24 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PostService {
 
-    Logger logger= LoggerFactory.getLogger(PostService.class);
+    Logger logger = LoggerFactory.getLogger(PostService.class);
 
     private final PostSqlRepository repository;
     private final BeachSqlRepository beachSqlRepository;
     private final UserSqlRepository userSqlRepository;
 
-    public Collection<Post>getAll(){
-        Sort sort=Sort.by(Sort.Direction.ASC,"beach");
+    public Collection<Post> getAll() {
+        Sort sort = Sort.by(Sort.Direction.ASC, "beach");
 
         return repository.findAll(sort);
     }
+
     public Post getById(Long id) {
 
         return repository.findById(id).get();
 
     }
+
     public Post addPost(AddPostRequest request) {
 
         var user = new User();
@@ -60,35 +62,41 @@ public class PostService {
         post.setUpdatedAt(request.getCreatedAt());
         beachSqlRepository.findById(request.getId());
         userSqlRepository.findById(request.getId());
-        post=repository.save(post);
+        post = repository.save(post);
 
-        logger.info ("successfully created a new Post");
-            return post;
+        logger.info("successfully created a new Post");
+        return post;
 
     }
-    public Post updatePost(Long id, UpdatePostRequest request){
+
+    public Post updatePost(Long id, UpdatePostRequest request) {
         var post = repository.findById(id).get();
         post.setWeather(request.getWeather());
         post.setWaves(request.getWaves());
         post.setComments(request.getComments());
         post.setUpdatedAt(new Date());
-        post=repository.save(post);
-        logger.info ("successfully updated Post");
-             return post;
+        post = repository.save(post);
+        logger.info("successfully updated Post");
+        return post;
 
     }
-    public void deletePost(long id){
-        try{
+
+    public void deletePost(long id) {
+        try {
             repository.deleteById(id);
             logger.info("Successfullt deleted post by Id " + id);
-        }
-        catch (Exception exception){
+        } catch (Exception exception) {
             logger.error(("Failed to delete post with Id"));
 
         }
     }
-    public List<Post> getbyUserName(String userName){
+
+    public List<Post> getbyUserName(String userName) {
         return repository.findPostByUserUserName(userName);
 
+    }
+
+    public List<Post> getbyBeachName(String beachName) {
+        return repository.findPostByBeachBeachName(beachName);
     }
 }
