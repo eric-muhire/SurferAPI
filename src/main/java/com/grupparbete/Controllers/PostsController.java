@@ -91,6 +91,10 @@ public class PostsController {
         return postService.getbyUserName(userName);
 
     }
+    @GetMapping("/beach/{beachName}")
+    public Collection<Post> getByBeachName(@PathVariable String beachName){
+        return postService.getbyBeachName(beachName);
+    }
 }
 
 

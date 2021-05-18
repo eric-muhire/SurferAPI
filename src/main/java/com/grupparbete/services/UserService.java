@@ -20,7 +20,7 @@ public class UserService {
     public Collection<User>getAll(){
         return userRepository.findAll();
     }
-    public User getById(Long id) {
+    public User getById(long id) {
         return userRepository.findById(id).get();
 
     }
@@ -33,14 +33,14 @@ public class UserService {
         return user;
     }
 
-    public User updateUser(Long id, UpdateUserRequest request) {
+    public User updateUser(long id, UpdateUserRequest request) {
         var user = userRepository.findById(id).get();
         user.setUserName(request.getUserName());
         user.setUserEmail(request.getUserEmail());
         user = userRepository.save(user);
             return user;
     }
-    public void deleteUser(Long id){
+    public void deleteUser(long id){
         userRepository.deleteById(id);
     }
 

@@ -1,5 +1,5 @@
 # SurferAPI
-This is a Surfer API readme file.The API allow users (surfers) to post, read, update and delete post information about different surf beaches around the world. This is to inform other users the conditions on those beaches in term of waves height, water temperature, shark attacks etc.
+This is a Surfer API readme file.The API allow users (surfers) to post, read, update,add comments and delete post information about different surf beaches around the world. This is to inform other users the conditions on those beaches in term of waves height, water temperature, shark attacks etc.
 ## Motivation
 This is a school project and the purpose is to learn spring framework.Postman is used for testing functionality.
 
