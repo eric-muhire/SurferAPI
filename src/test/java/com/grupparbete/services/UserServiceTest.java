@@ -1,5 +1,4 @@
 package com.grupparbete.services;
-
 import com.grupparbete.entities.User;
 import com.grupparbete.repositories.BeachSqlRepository;
 import com.grupparbete.repositories.PostSqlRepository;

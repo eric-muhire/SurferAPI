@@ -1,6 +1,4 @@
 package com.grupparbete.services;
-
-
 import com.grupparbete.entities.Beach;
 import com.grupparbete.entities.Post;
 import com.grupparbete.entities.User;

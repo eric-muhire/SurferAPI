@@ -6,7 +6,6 @@ import com.grupparbete.repositories.UserSqlRepository;
 import com.grupparbete.requests.AddUserRequest;
 import com.grupparbete.requests.UpdateUserRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Collection;
 
