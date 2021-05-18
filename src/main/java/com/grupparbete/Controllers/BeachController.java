@@ -1,15 +1,11 @@
 package com.grupparbete.Controllers;
-
-
 import com.grupparbete.entities.Beach;
 import com.grupparbete.requests.AddBeachRequest;
 import com.grupparbete.requests.UpdateBeachRequest;
 import com.grupparbete.services.BeachService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
