@@ -29,7 +29,6 @@ public class UserInMemoryRepository {
         public User updateUser (Long id, User user){
             users.put(id, user);
             return users.get(id);
-
         }
         public void deleteUser (int id){
             users.remove(id);

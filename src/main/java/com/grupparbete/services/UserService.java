@@ -14,11 +14,9 @@ import java.util.Collection;
 @RequiredArgsConstructor
 public class UserService {
 
-
     private final UserSqlRepository userRepository;
     private final PostSqlRepository repository;
     private final BeachSqlRepository beachSqlRepository;
-
 
     public Collection<User>getAll(){
         return userRepository.findAll();
@@ -35,7 +33,6 @@ public class UserService {
         user = userRepository.save(user);
         return user;
     }
-
 
     public User updateUser(Long id, UpdateUserRequest request) {
         var user = userRepository.findById(id).get();

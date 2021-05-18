@@ -51,7 +51,6 @@ public class PostService {
         beach.setId(request.getId());
         beach = beachSqlRepository.save(beach);
 
-
         var post = new Post();
         post.setId(request.getId());
         post.setWeather(request.getWeather());
@@ -67,7 +66,6 @@ public class PostService {
 
         logger.info ("successfully created a new Post");
             return post;
-
 
     }
     public Post updatePost(Long id, UpdatePostRequest request){
@@ -90,12 +88,9 @@ public class PostService {
             logger.error(("Failed to delete post with Id"));
 
         }
-
     }
     public List<Post> getbyUserName(String userName){
         return repository.findPostByUserUserName(userName);
 
     }
-
-
 }
