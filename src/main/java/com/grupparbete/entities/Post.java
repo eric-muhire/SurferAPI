@@ -43,7 +43,7 @@ public class Post {
     @JoinColumn(name="beach_id")
     private Beach beach;
 
-    //Many to one relation between post and User
+    //one to one relation between post and User
     @OneToOne
     @JoinColumn(name="user_id")
   private User user;
