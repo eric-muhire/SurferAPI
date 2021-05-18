@@ -23,7 +23,6 @@ public class Post {
     @Id
     private long id;
 
-
     @ApiModelProperty(notes = "Information about weather")
     @Column(name = "weather")
     private String weather;
@@ -39,7 +38,6 @@ public class Post {
     @ApiModelProperty(notes = "The date when a post was last updated")
     @Column(name = "updatedAt")
     private Date updatedAt;
-
 
     //Many to one relation between post and beach
     @ManyToOne
