@@ -8,9 +8,7 @@ import com.grupparbete.requests.UpdateUserRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-
 import java.util.Optional;
-
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
@@ -31,8 +29,6 @@ class UserServiceTest {
         this.userSqlRepository= Mockito.mock(UserSqlRepository.class);
         this.repository= Mockito.mock(PostSqlRepository.class);
         this.beachSqlRepository=Mockito.mock(BeachSqlRepository.class);
-
-
         this.sut=new UserService(this.userSqlRepository,this.repository,this.beachSqlRepository);
 
     }

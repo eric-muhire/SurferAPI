@@ -20,5 +20,7 @@ public class AddUserRequest {
     @ApiModelProperty(notes = "The user´s  e-mail")
     private String userEmail;
 
+
+
 }
 

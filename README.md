@@ -1,8 +1,7 @@
 # SurferAPI
 This is a Surfer API readme file.The API allow users (surfers) to post, read, update and delete post information about different surf beaches around the world. This is to inform other users the conditions on those beaches in term of waves height, water temperature, shark attacks etc.
 ## Motivation
-This is a school project and the purpose is to learn spring framework.
-We have used Postman for testing functionality.
+This is a school project and the purpose is to learn spring framework.Postman is used for testing functionality.
 
 ### Technical information
 **Built with** [Intellij](https://www.jetbrains.com/idea/),
@@ -11,12 +10,10 @@ We have used Postman for testing functionality.
 
 
 **Documentation** 
-We use Swagger for API documentation.
+ Swagger for API documentation.
 [Swagger](https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/)
 
 #### Code samples
-package com.grupparbete.AspectedOrientedProgramming;
-
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;

@@ -18,7 +18,8 @@ public class AddPostRequest {
     private Date createdAt;
     @ApiModelProperty(notes = "The specific ID for post")
     private long id;
-
+    @ApiModelProperty(notes = "post comment")
+    private String comments;
 
     private String beachName;
     private String userName;

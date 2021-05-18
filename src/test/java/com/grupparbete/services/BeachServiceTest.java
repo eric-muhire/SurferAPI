@@ -1,5 +1,4 @@
 package com.grupparbete.services;
-
 import com.grupparbete.entities.Beach;
 import com.grupparbete.repositories.BeachSqlRepository;
 import com.grupparbete.repositories.PostSqlRepository;
@@ -8,20 +7,16 @@ import com.grupparbete.requests.UpdateBeachRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-
 import java.util.Optional;
-
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 
 
-
 class BeachServiceTest {
 
     private BeachService sut;
-
     private BeachSqlRepository beachSqlRepository;
     private PostSqlRepository repository;
     private UserSqlRepository userSqlRepository;

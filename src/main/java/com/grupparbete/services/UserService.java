@@ -27,15 +27,16 @@ public class UserService {
         return userRepository.findById(id).get();
 
     }
-    public User addUser(AddUserRequest request){
-        var user=new User();
+    public User addUser(AddUserRequest request) {
+        var user = new User();
         user.setId(request.getId());
         user.setUserName(request.getUserName());
         user.setUserEmail(request.getUserEmail());
         user = userRepository.save(user);
-            return user;
-
+        return user;
     }
+
+
     public User updateUser(Long id, UpdateUserRequest request) {
         var user = userRepository.findById(id).get();
         user.setUserName(request.getUserName());

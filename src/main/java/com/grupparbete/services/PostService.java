@@ -58,6 +58,7 @@ public class PostService {
         post.setBeach(beach);
         post.setUser(user);
         post.setWaves(request.getWaves());
+        post.setComments(request.getComments());
         post.setCreatedAt(new Date());
         post.setUpdatedAt(request.getCreatedAt());
         beachSqlRepository.findById(request.getId());
@@ -73,6 +74,7 @@ public class PostService {
         var post = repository.findById(id).get();
         post.setWeather(request.getWeather());
         post.setWaves(request.getWaves());
+        post.setComments(request.getComments());
         post.setUpdatedAt(new Date());
         post=repository.save(post);
         logger.info ("successfully updated Post");

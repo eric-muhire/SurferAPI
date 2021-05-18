@@ -50,6 +50,8 @@ public class Post {
     @OneToOne
     @JoinColumn(name="user_id")
   private User user;
-
+    @ApiModelProperty(notes = "Comments from the user")
+    @Column
+    private String Comments;
 
 }

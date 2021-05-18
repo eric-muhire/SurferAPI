@@ -18,5 +18,7 @@ public class UpdatePostRequest {
     private Date updatedAt;
     @ApiModelProperty(notes = "The user's ID specification")
     private int userId;
+    @ApiModelProperty(notes = "post comment")
+    private String comments;
 
 }

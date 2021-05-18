@@ -1,31 +1,24 @@
-package com.grupparbete.school;
-
+package com.grupparbete.services;
 import com.grupparbete.entities.Post;
 import com.grupparbete.repositories.BeachSqlRepository;
 import com.grupparbete.repositories.PostSqlRepository;
 import com.grupparbete.repositories.UserSqlRepository;
 import com.grupparbete.requests.UpdatePostRequest;
-import com.grupparbete.services.PostService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-
 import java.util.Date;
 import java.util.Optional;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 
-@DataJpaTest
+
 class PostServiceTest {
 
     private PostService sut;
-
     private PostSqlRepository repository;
     private BeachSqlRepository beachSqlRepository;
     private UserSqlRepository userSqlRepository;
@@ -37,7 +30,6 @@ class PostServiceTest {
         this.repository= Mockito.mock(PostSqlRepository.class);
         this.beachSqlRepository=Mockito.mock(BeachSqlRepository.class);
         this.userSqlRepository=Mockito.mock(UserSqlRepository.class);
-
         this.sut=new PostService(this.repository, this.beachSqlRepository,this.userSqlRepository);
 
     }
